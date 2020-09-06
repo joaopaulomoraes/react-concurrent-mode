@@ -1,25 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement, Suspense } from 'react'
+import CroctProvider from './croctContext'
+import UserCard from './UserCard'
+import Button from './Button';
 
-function App() {
+function App(): ReactElement {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CroctProvider appId="00000000-0000-0000-0000-000000000000" debug>
+      <Button />
+
+      <Suspense fallback={<h1>Identifing user...</h1>}>
+        <UserCard />
+      </Suspense>
+    </CroctProvider>
   );
 }
 
