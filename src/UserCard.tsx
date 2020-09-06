@@ -18,7 +18,7 @@ const unknowUser = {
   activities: [],
   city: null,
   duration: '0s'
-}
+} as User
 
 const UserCard: FunctionComponent<UserCardProps> = (): ReactElement => {
   const croct = useCroct()
