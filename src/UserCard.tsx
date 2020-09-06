@@ -27,6 +27,8 @@ const UserCard: FunctionComponent<UserCardProps> = (): ReactElement => {
     load: () => unknowUser
   })
 
+  const user = resource.load()
+
   useEffect(() => {
     setResource(
       wrapPromise(
@@ -41,14 +43,12 @@ const UserCard: FunctionComponent<UserCardProps> = (): ReactElement => {
     )
   }, [croct])
 
-  const user = resource.load()
-
   return (
     <ul>
       <li>Age: {user.age ?? 'unkown'}</li>
       <li>Interests: [{user.interests.toString()}]</li>
-      <li>Atividades: [{user.activities.toString()}]</li>
-      <li>Cidade: {user.city ?? 'unkown'}</li>
+      <li>Activities: [{user.activities.toString()}]</li>
+      <li>City: {user.city ?? 'unkown'}</li>
       <li>Session duration: {user.duration}</li>
     </ul>
   )
